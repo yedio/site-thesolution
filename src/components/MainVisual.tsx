@@ -18,8 +18,7 @@ const MainVisual = () => {
   const swiperRef = useRef<SwiperCore | null>(null);
 
   const slideInfo = {
-    title: "The IT",
-    subTitle: "Solution",
+    title: "The Solution",
     description: "Integrated Production Process",
     subDescription: "통합생산기술, 숙련된 기술자와 엄격한 품질관리",
   };
@@ -79,11 +78,8 @@ const MainVisual = () => {
                 <div className="px-4 mx-auto max-w-7xl text-center sm:px-6 lg:px-8">
                   <div className="text-white">
                     <div className="mb-6">
-                      <h1 className="mb-2 text-5xl font-light md:text-7xl lg:text-8xl">
-                        {slideInfo.title}
-                      </h1>
                       <h1 className="text-5xl font-bold md:text-7xl lg:text-8xl">
-                        {slideInfo.subTitle}
+                        {slideInfo.title}
                       </h1>
                     </div>
                     <div className="space-y-4">

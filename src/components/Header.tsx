@@ -2,15 +2,18 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ChevronDown, Download, Globe } from "lucide-react";
+import { Download, FileDown } from "lucide-react";
+import { LanguageChanger } from "./layout/LanguageChanger";
+import { useTranslation } from "react-i18next";
+import { LineBreaker } from "../../libs/Utility";
 
 const Header = () => {
+  const { t } = useTranslation();
+
   const [isAllMenuOpen, setIsAllMenuOpen] = useState(false);
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [isDownloadMenuOpen, setIsDownloadMenuOpen] = useState(false);
 
   const downloadRef = useRef(null);
-  const langRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -19,12 +22,6 @@ const Header = () => {
         !(downloadRef.current as HTMLElement).contains(event.target as Node)
       ) {
         setIsDownloadMenuOpen(false);
-      }
-      if (
-        langRef.current &&
-        !(langRef.current as HTMLElement).contains(event.target as Node)
-      ) {
-        setIsLangMenuOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -78,9 +75,9 @@ const Header = () => {
       <div className="transition-all duration-200">
         <div className="justify-between items-center max-w-[1920px] flex h-18 px-6">
           {/* 로고 */}
-          <Link href="/" className="flex items-center h-full in">
+          <Link href="/" className="flex items-center h-full w-50 in">
             <div className="text-2xl font-bold text-blue-900">
-              더아이티솔루션
+              {t("companyName")}
             </div>
           </Link>
 
@@ -118,21 +115,18 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-
           {/* 우측 유틸리티 메뉴 */}
-          <div className="flex items-center space-x-4">
-            {/* 회사소개서 다운로드 - lg 이상에서만 보임 */}
-            <div className="hidden relative down lg:block" ref={downloadRef}>
+          {/* 회사소개서다운로드 & 언어 선택 - lg 이상에서만 보임 */}
+          <div className="hidden items-center space-x-4 lg:flex w-[240px] justify-end">
+            <div className="relative down" ref={downloadRef}>
               <button
                 onClick={() => setIsDownloadMenuOpen(!isDownloadMenuOpen)}
                 className="in flex items-center px-4 py-2 transition-colors duration-200 rounded-[4px] bg-[#314acb] text-white hover:bg-[#15151f]"
               >
-                <span className="text-base">회사소개서</span>
-                <ChevronDown
-                  className={`ml-2 h-4 w-4 transition-transform duration-300 ${
-                    isDownloadMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
+                <span className="text-base">
+                  {LineBreaker(t("companyProfile"))}
+                </span>
+                <FileDown className="ml-2 w-4 h-4 shrink-0" />
               </button>
               {isDownloadMenuOpen && (
                 <ul className="absolute right-0 left-0 top-full z-50 p-2 mt-2 bg-white rounded-md border shadow-lg list">
@@ -163,69 +157,37 @@ const Header = () => {
                 </ul>
               )}
             </div>
-            {/* 언어 선택 - lg 이상에서만 보임 */}
-            <div className="hidden relative langWrap lg:block" ref={langRef}>
-              <div className="btn_lang">
-                <button
-                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="flex items-center px-1 space-x-2 h-10 btn_in"
-                >
-                  <div className="flex items-center space-x-1">
-                    <Globe className="w-4 h-4 icon" />
-                    <strong className="text-base font-bold">KOR</strong>
-                  </div>
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-300 arrow ${
-                      isLangMenuOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-              </div>
-              {isLangMenuOpen && (
-                <ul className="absolute right-0 left-0 top-full z-50 p-2 mt-2 text-center bg-white rounded-md border shadow-lg transition-all duration-200 list">
-                  <li className="on">
-                    <button className="block px-2 py-1 w-full text-black transition-colors duration-200 in hover:bg-gray-100">
-                      <span className="text-sm tt">KOR</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button className="block px-2 py-1 w-full text-black transition-colors duration-200 in hover:bg-gray-100">
-                      <span className="text-sm tt">ENG</span>
-                    </button>
-                  </li>
-                </ul>
-              )}
-            </div>
+            <LanguageChanger />
+          </div>
 
-            {/* 전체메뉴 (햄버거) - lg 이하에서만 보임 */}
-            <div className="w-15 allWrap lg:hidden">
-              <button
-                onClick={() => setIsAllMenuOpen(!isAllMenuOpen)}
-                className="flex justify-center items-center h-full btn_all"
-              >
-                <span className="block relative w-7 h-5 btn_in">
-                  <span
-                    className={`block h-0.5 w-full bg-gray-800 transition-all duration-200 ${
-                      isAllMenuOpen ? "bg-transparent" : ""
-                    }`}
-                  ></span>
-                  <span
-                    className={`absolute left-0 w-full h-0.5 bg-gray-800 transition-all duration-200 ${
-                      isAllMenuOpen
-                        ? "top-1/2 w-full transform -rotate-45"
-                        : "top-full"
-                    }`}
-                  ></span>
-                  <span
-                    className={`absolute left-0 w-full h-0.5 bg-gray-800 transition-all duration-200 ${
-                      isAllMenuOpen
-                        ? "top-1/2 w-full transform rotate-45"
-                        : "top-1/2"
-                    }`}
-                  ></span>
-                </span>
-              </button>
-            </div>
+          {/* 전체메뉴 (햄버거) - lg 이하에서만 보임 */}
+          <div className="w-15 allWrap lg:hidden">
+            <button
+              onClick={() => setIsAllMenuOpen(!isAllMenuOpen)}
+              className="flex justify-center items-center h-full btn_all"
+            >
+              <span className="block relative w-7 h-5 btn_in">
+                <span
+                  className={`block h-0.5 w-full bg-gray-800 transition-all duration-200 ${
+                    isAllMenuOpen ? "bg-transparent" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`absolute left-0 w-full h-0.5 bg-gray-800 transition-all duration-200 ${
+                    isAllMenuOpen
+                      ? "top-1/2 w-full transform -rotate-45"
+                      : "top-full"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute left-0 w-full h-0.5 bg-gray-800 transition-all duration-200 ${
+                    isAllMenuOpen
+                      ? "top-1/2 w-full transform rotate-45"
+                      : "top-1/2"
+                  }`}
+                ></span>
+              </span>
+            </button>
           </div>
         </div>
       </div>
