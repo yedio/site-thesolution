@@ -1,6 +1,15 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 @import "tailwindcss";
 
+/* CSS Variables */
 :root {
+  --primary-color: #314acb;
+  --primary-dark: #15151f;
+  --text-dark: #333;
+  --text-light: #666;
+  --text-muted: #999;
+  --bg-light: #f8f8f8;
+  --bg-section: #f9f9fa;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -8,8 +17,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +29,390 @@
   }
 }
 
+/* Base Styles */
+* {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif;
+}
+
+body,
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Utility Classes */
+.fullH {
+  height: 100vh !important;
+  box-sizing: border-box;
+}
+
+.fullMH {
+  min-height: 100vh !important;
+  box-sizing: border-box;
+}
+
+.pcHide {
+  display: none !important;
+}
+
+.moHide {
+  display: block !important;
+}
+
+/* Typography */
+.fstUC {
+  text-transform: uppercase;
+}
+
+.c_point {
+  color: var(--primary-color);
+}
+
+.cw {
+  color: white;
+}
+
+.br {
+  display: block;
+}
+
+/* Main Layout */
+.main_layout {
+  position: relative;
+}
+
+.main_layout .inner {
+  max-width: 1792px; /* 112rem */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main_layout .inner .layL {
+  width: 50%;
+  max-width: 31.25em;
+  padding-right: 5em;
+}
+
+.main_layout .inner .layL.pl {
+  padding-left: 5em;
+}
+
+.main_layout .inner .layR {
+  flex: 1;
+}
+
+.main_layout2 .inner .layL {
+  flex: 1;
+}
+
+.main_layout2 .inner .layR {
+  width: 50%;
+  padding: 3em 6vw 3.125em 6.25em;
+}
+
+.main_layout3 .inner .layL {
+  width: 50%;
+  padding-right: 3.125em;
+}
+
+.main_layout3 .inner .layR {
+  flex: 1;
+  padding-left: 5em;
+}
+
+/* Main Content */
+.main_con {
+  padding: 8.125em 0;
+}
+
+.main_con.pd {
+  padding: 4.125em 0;
+}
+
+.main_con.main_service {
+  padding: 2.25em 0 0 0;
+}
+
+.main_con.main_customer {
+  padding: 5em 0;
+}
+
+/* Text Styles */
+.main_txt {
+  position: relative;
+}
+
+.main_txt .tit {
+  margin-bottom: 3em;
+}
+
+.main_txt .tit.mg1 {
+  margin-bottom: 1.5em;
+}
+
+.main_txt .tit.mg2 {
+  margin-bottom: 4.5em;
+}
+
+.main_txt .txt .tt {
+  line-height: 1.4;
+}
+
+.main_txt .tt {
+  margin-top: 1em;
+}
+
+.main_txt .tt:first-child {
+  margin-top: 0;
+}
+
+.main_txt .t1 {
+  font-size: 0.938em;
+}
+.main_txt .t2 {
+  font-size: 1em;
+}
+.main_txt .t3 {
+  font-size: 1.063em;
+}
+.main_txt .t4 {
+  font-size: 1.125em;
+}
+.main_txt .t5 {
+  font-size: 1.25em;
+}
+.main_txt .t6 {
+  font-size: 1.375em;
+}
+.main_txt .t7 {
+  font-size: 1.5em;
+}
+.main_txt .t8 {
+  font-size: 1.625em;
+}
+.main_txt .t9 {
+  font-size: 1.75em;
+}
+.main_txt .t10 {
+  font-size: 1.875em;
+}
+.main_txt .t11 {
+  font-size: 2.375em;
+}
+.main_txt .t12 {
+  font-size: 3.375em;
+}
+.main_txt .t13 {
+  font-size: 4em;
+  line-height: 1;
+}
+
+.cw .main_txt .tt {
+  color: #fff;
+}
+
+/* More Button */
+.main_more {
+  position: relative;
+}
+
+.main_more.pd1 {
+  padding-top: 2.5em;
+}
+
+.main_more > .more {
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  padding: 1.25em 1.875em;
+  border-radius: 6em;
+  background: var(--primary-color);
+  color: #fff;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.main_more > .more .tt {
+  font-size: 1.063em;
+}
+
+.main_more > .more .xi {
+  font-size: 1.125em;
+  margin-left: 0.5em;
+}
+
+.main_more > .more.re {
+  background: #fff;
+  color: var(--primary-color);
+}
+
+.main_more > .more:hover {
+  background: var(--primary-dark);
+  color: #fff;
+}
+
+/* Vision Cards */
+.vision {
+  text-align: center;
+}
+
+.vision .list_con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vision .circle_wrap {
+  position: relative;
+  margin-bottom: 2em;
+}
+
+.vision .circle {
+  position: relative;
+  width: 17.5em;
+  height: 17.5em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vision .circle_tt {
+  position: absolute;
+  text-align: center;
+  color: white;
+}
+
+.vision .circle_tt img {
+  width: 4em;
+  margin-bottom: 1em;
+}
+
+.vision .circle_tt .t1 {
+  margin-top: 2em;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.vision .circle_tt .t2 {
+  font-size: 1.75em;
+  font-weight: 600;
+  margin-top: 0.3em;
+}
+
+.vision .t3 {
+  font-size: 1.125em;
+  margin-top: 1.18em;
+  color: white;
+}
+
+/* Swiper Customization */
+.swiper-pagination-bullet {
+  background: white !important;
+  opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+}
+
+/* Custom Progress Circle */
+.mainProgress {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+
+/* Floating Buttons */
+.goCall,
+.goTop {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  z-index: 999;
+  transition: 0.3s;
+}
+
+.goCall {
+  bottom: 5.5em;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pcHide {
+    display: block !important;
+  }
+  .moHide {
+    display: none !important;
+  }
+
+  .main_layout .inner .layL,
+  .main_layout2 .inner .layL,
+  .main_layout2 .inner .layR,
+  .main_layout3 .inner .layL,
+  .main_layout3 .inner .layR {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 3rem;
+  }
+
+  .main_con {
+    padding: 4rem 0;
+  }
+
+  .vision .circle {
+    width: 12em;
+    height: 12em;
+  }
+}
+
+@media (max-width: 768px) {
+  .box0,
+  .box1,
+  .box2 {
+    width: 95%;
+  }
+
+  .main_txt .t13 {
+    font-size: 2.5em;
+  }
+
+  .main_txt .t12 {
+    font-size: 2.5em;
+  }
+
+  .main_txt .t11 {
+    font-size: 1.875em;
+  }
+
+  .main_con {
+    padding: 3rem 0;
+  }
+
+  .vision .circle {
+    width: 10em;
+    height: 10em;
+  }
+
+  .vision .t3 {
+    font-size: 1em;
+  }
 }
