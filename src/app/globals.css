@@ -8,6 +8,7 @@
   --text-dark: #333;
   --text-light: #666;
   --text-muted: #999;
+  --bg-white: #ffffff;
   --bg-light: #f8f8f8;
   --bg-section: #f9f9fa;
   --background: #ffffff;
@@ -43,7 +44,7 @@ html {
 }
 
 body {
-  background: var(--background);
+  background: var(--bg-white);
   color: var(--foreground);
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
     Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",

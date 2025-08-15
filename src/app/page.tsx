@@ -2,13 +2,11 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Header from "@/components/Header";
-import MainVisual from "@/components/MainVisual";
-import AboutSection from "@/components/AboutSection";
-import ServiceSection from "@/components/ServiceSection";
-import RnDSection from "@/components/RnDSection";
-import CustomerSection from "@/components/CustomerSection";
-import Footer from "@/components/Footer";
+import MainVisual from "@/components/layout/main/MainVisual";
+import AboutSection from "@/components/layout/main/AboutSection";
+import ServiceSection from "@/components/layout/main/ServiceSection";
+import ContactSection from "@/components/layout/main/ContactSection";
+import ProductSection from "@/components/layout/main/ProductSection";
 
 export default function Home() {
   useEffect(() => {
@@ -21,15 +19,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <Header />
-      <main className="pt-20">
+      <main>
         <MainVisual />
         <AboutSection />
         <ServiceSection />
-        <RnDSection />
-        <CustomerSection />
+        <ProductSection />
+        <ContactSection />
       </main>
-      <Footer />
     </div>
   );
 }

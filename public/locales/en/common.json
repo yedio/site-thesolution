@@ -1,4 +1,30 @@
 {
   "companyName": "The Solution",
-  "companyProfile": "Introduction"
+  "companyProfile": "Introduction",
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Fill out the form below and we'll get back to you as soon as possible.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "phoneHint": "International numbers are supported (optional)",
+    "inquiry": "Inquiry",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "phonePlaceholder": "+1 (234) 56789",
+    "inquiryPlaceholder": "Your inquiry",
+    "sendButton": "Send Inquiry",
+    "sending": "Sending...",
+    "required": "Required",
+    "validation": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email format.",
+      "inquiryRequired": "Please enter your inquiry."
+    },
+    "toast": {
+      "success": "Your inquiry has been sent successfully!",
+      "error": "Failed to send inquiry. Please try again later."
+    }
+  }
 }

@@ -1,4 +1,30 @@
 {
   "companyName": "더솔루션",
-  "companyProfile": "회사소개서"
+  "companyProfile": "회사소개서",
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "아래 양식을 작성해주시면 가능한 한 빨리 연락드리겠습니다.",
+    "name": "이름",
+    "email": "이메일",
+    "phone": "전화번호",
+    "phoneHint": "해외 번호도 입력 가능합니다 (선택사항)",
+    "inquiry": "문의",
+    "namePlaceholder": "이름을 입력하세요",
+    "emailPlaceholder": "이메일을 입력하세요",
+    "phonePlaceholder": "+1 (234) 56789",
+    "inquiryPlaceholder": "문의 내용을 입력하세요",
+    "sendButton": "문의하기",
+    "sending": "전송 중...",
+    "required": "필수",
+    "validation": {
+      "nameRequired": "이름을 입력해주세요.",
+      "emailRequired": "이메일을 입력해주세요.",
+      "emailInvalid": "올바른 이메일 형식을 입력해주세요.",
+      "inquiryRequired": "문의 내용을 입력해주세요."
+    },
+    "toast": {
+      "success": "문의가 성공적으로 전송되었습니다!",
+      "error": "문의 전송에 실패했습니다. 잠시 후 다시 시도해주세요."
+    }
+  }
 }
