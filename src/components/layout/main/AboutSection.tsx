@@ -6,9 +6,10 @@ const AboutSection = () => {
   return (
     <MainWrapper>
       <div className="flex gap-3 justify-between">
-        <div>
-          <h2 className="text-2xl font-bold">About Us</h2>
-          <p className="text-sm text-gray-500">
+        <div className="flex flex-col">
+          <h1 className="fw-600 text-24">About Us</h1>
+          <h2 className="mt-2 fw-600 text-60">더솔루션</h2>
+          <p className="mt-3 text-20">
             We are a team of developers who are passionate about creating
             innovative solutions for our clients.
           </p>
